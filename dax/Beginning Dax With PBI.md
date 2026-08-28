@@ -15,3 +15,15 @@
 - calculations (measures over the tables like rowcounts, summing a column values)
 
 # Components of a DAX data model
+- page 4 to 5
+- 6 key components: (1) Data, (2) Tables, (3) Columns, (4) Relationships, (5) Measures; (6) Hierarchies
+- (1) Data: imported data. Can be various types but once imported will be in two dimensional structure called table.
+- (2) Tables: to store and organize data.  Made up of the source data or via results DAX Calculations
+- (3) Columns: Table have 1 or more; data engine behind DAX stores data in columns, unlike SQL Server which stores in rows. Each column have separate index. Once data is loaded in the column it is static/cannot be changed.
+- (4) Relationships: 2 tables can be connected; via 1 column from both; 1-1, 1-*, *-* (recently). used more to provide filtering instead of normalization of OLTP systems.
+- (5) Measures: dax calculations; returns single value used in visuals or other measures; can respond to user interaction and recalcs when report used; returns new values based on the updates to the selection of slicers and filters.
+- (6) Hierarchies: groupings of columns in a table; used for drilling up and down it.
+
+# Your first DAX calculation
+- page 5
+- 3 types: (1) calculated columns, (2) calculated measures, (3) calculated tables.
