@@ -25,5 +25,11 @@
 - (6) Hierarchies: groupings of columns in a table; used for drilling up and down it.
 
 # Your first DAX calculation
-- page 5
+- page 5 to 7
 - 3 types: (1) calculated columns, (2) calculated measures, (3) calculated tables.
+- Use natural language (spaces etc, avoid underscores and not spaces), when naming.
+- a calculated measure can only ever return a single value, not a list or table.
+
+# Formatting
+- page 10
+- dax studio useful in writing dax. Alternative to using the native formula bar.
