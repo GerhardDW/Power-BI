@@ -33,3 +33,15 @@
 # Formatting
 - page 10
 - dax studio useful in writing dax. Alternative to using the native formula bar.
+
+# Second & Third DAX calculation
+- page 11-12
+- second is a calculated column.
+- third is a calculated table, can be done by referencing another table or writing dax from scratch and is only available in PBI desktop and SSAS tabular not Excel PowerPivot. When referencing another table, modifications typically flow through to it.
+- It is common to use dax calculated tables for summary tables which then can give performance gains if you add calculations to these summary tables.
+
+# Datatypes
+- page 13
+- Power Query quesses the datatypes upon loading, so beware of configuring correctly.
+- Decimal datatype are correct to 15 significant values and the values on the integer side take priority, be aware.
+- Date, DateTime, Time also available.
