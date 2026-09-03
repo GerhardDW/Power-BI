@@ -1,5 +1,5 @@
 # Beginning Dax with PBI by Phillip Seamark
-
+-------
 ## Chapter 1
 
 ### What is Dax
