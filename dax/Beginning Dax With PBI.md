@@ -62,6 +62,16 @@
 - basically allow to tables to be associated with one another.
 - mainly for the purpose of two things 1) to automatically filter rows on another table via the relationship 2) to allow calcs to use rows from another table and understand how the rows should be connected
 - Types of relationships: 1-* (preferred), 1-1, *-*. (side note: also a directionfilter).
-- 
+- The value selected will filter through via the filter direction (can then affect others as well).
+- trick is to place one-side relationships higher than many-side table to visually help with the trickle down effect of the relationship.
+- RELATED() used to fetch values from the many side in a calculated column.
+- RELATEDTABLE() used to fetch values from the one side in a calculated column.
+- Two tables can have more than one relationship but only 1 active. If you want to use the inactive relationship use: USERELATIONSHIP().
 
+### Hierarchies
+- Basically configured on a table to provide column level drilling (you have a starting point in the hierarchy and can drill down to the next level, then to the next etc, then back up to the starting point)
+- Not all visuals understand it but most allow it to be the grouping.
+
+----
+## Chapter 2: Variables
 
