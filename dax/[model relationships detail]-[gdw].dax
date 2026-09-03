@@ -1,0 +1,10 @@
+﻿EVALUATE
+SELECTCOLUMNS(
+    INFO.VIEW.RELATIONSHIPS(),
+    "From Table", [FromTable],
+    "From Column", [FromColumn],
+    "To Table", [ToTable],
+    "To Column", [ToColumn],
+    "Cross Filter", [CrossFilteringBehavior],
+    "Active", [IsActive]
+)
