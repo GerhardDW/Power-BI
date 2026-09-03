@@ -1,0 +1,24 @@
+﻿EVALUATE
+VAR SearchTable = "Employee Training" // change table here
+
+VAR Dep = INFO.CALCDEPENDENCY()
+VAR Edges = SELECTCOLUMNS(
+    FILTER(Dep, [OBJECT_TYPE]="MEASURE" && [REFERENCED_OBJECT_TYPE]="MEASURE"),
+    "Child", [OBJECT], "Parent", [REFERENCED_OBJECT])
+VAR L0 = DISTINCT(SELECTCOLUMNS(
+    FILTER(Dep, [OBJECT_TYPE]="MEASURE" && [REFERENCED_TABLE]=SearchTable),
+    "M", [OBJECT]))
+VAR S1 = DISTINCT(UNION(L0, SELECTCOLUMNS(FILTER(Edges,[Parent] IN L0),"M",[Child])))
+VAR S2 = DISTINCT(UNION(S1, SELECTCOLUMNS(FILTER(Edges,[Parent] IN S1),"M",[Child])))
+VAR S3 = DISTINCT(UNION(S2, SELECTCOLUMNS(FILTER(Edges,[Parent] IN S2),"M",[Child])))
+VAR S4 = DISTINCT(UNION(S3, SELECTCOLUMNS(FILTER(Edges,[Parent] IN S3),"M",[Child])))
+VAR S5 = DISTINCT(UNION(S4, SELECTCOLUMNS(FILTER(Edges,[Parent] IN S4),"M",[Child])))
+VAR ExprLookup = SUMMARIZE(FILTER(Dep,[OBJECT_TYPE]="MEASURE"),[OBJECT],[EXPRESSION])
+RETURN
+ADDCOLUMNS(
+    S5,
+    "SearchedTable", SearchTable,
+    "RefType", IF([M] IN L0, "Direct", "Indirect (via measure)"),
+    "ReferencesOtherMeasure", IF(COUNTROWS(FILTER(Edges,[Child]=[M]))>0,"Yes","No"),
+    "Expression", MAXX(FILTER(ExprLookup,[OBJECT]=[M]),[EXPRESSION])
+)
