@@ -1,0 +1,8 @@
+City and Country =
+
+//useful for some visuals that try to plot using text-based address data
+
+VAR city = 'Dimension City'[City]
+VAR country = 'Dimension City'[Country]
+RETURN
+city & ", " & country
