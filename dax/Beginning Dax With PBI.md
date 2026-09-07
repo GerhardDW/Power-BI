@@ -74,4 +74,8 @@
 
 ----
 ## Chapter 2: Variables
+- to make code more readible, and in certain cases for performance.
+- in any dax object: measure, calculated column or tables. Or a hard coded value.
+- VAR (one or more variables) + RETURN, is the variable scope, you can have nested.
+- you can only declare and assign a variable once.
 
