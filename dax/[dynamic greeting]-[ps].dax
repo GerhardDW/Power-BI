@@ -1,0 +1,11 @@
+Greeting =
+VAR CurrentHour = HOUR(NOW())
+VAR GreetingText =
+SWITCH(
+TRUE(),
+CurrentHour<12,"Morning",
+CurrentHour<17,"Afternoon",
+"Evening"
+)
+RETURN
+"Good " & GreetingText & ", " & USERNAME()
