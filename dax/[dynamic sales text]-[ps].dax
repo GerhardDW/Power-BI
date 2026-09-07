@@ -1,0 +1,12 @@
+Sales Text =
+VAR SalesQty = SUM('Fact Sale'[Quantity])
+VAR Text1 = "This month we sold "
+VAR Text2 = " Items"
+VAR Result = IF(
+SalesQty > 0,
+-- THEN --
+Text1 & SalesQty & Text2,
+-- ELSE --
+"No sales this month"
+)
+RETURN Result
