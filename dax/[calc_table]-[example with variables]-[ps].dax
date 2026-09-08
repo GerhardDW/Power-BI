@@ -1,0 +1,31 @@
+Sales Summary =
+  
+VAR SalesTableWithCustKey =
+  FILTER(
+  -- Filter Table --
+  'Fact Sale',
+  -- Fitler Condition --
+  'Fact Sale'[Customer Key]>0
+  )
+  
+VAR SalesTableGrouped =
+  SUMMARIZE(
+  -- Table to Summarize --
+  SalesTableWithCustKey,
+  -- Columns to Group By --
+  'Fact Sale'[Customer Key],
+  -- Aggretated Column Name & Expression --
+  "Total Spend",SUM('Fact Sale'[Total Including Tax])
+  )
+  
+VAR SummaryTableFiltered =
+  TOPN(
+  -- Number of rows to return
+  10,
+  -- Table to filter --
+  SalesTableGrouped,
+  -- Order by Expression
+  [Total Spend]
+  )
+  
+RETURN SummaryTableFiltered
