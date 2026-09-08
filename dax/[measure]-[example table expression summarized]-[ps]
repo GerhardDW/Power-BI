@@ -1,0 +1,9 @@
+Total Sales > $100 =
+VAR SalesAbove100 =
+FILTER(
+-- Filter Table --
+'Fact Sale',
+-- Filter Condition --
+'Fact Sale'[Total Including Tax]>=100
+)
+RETURN COUNTROWS(SalesAbove100)
