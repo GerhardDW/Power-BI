@@ -1,0 +1,7 @@
+Nested Measure =
+VAR Level1a = 10
+VAR Level1b =
+  VAR level2a = Level1a
+  VAR Leval2b = level2a * 3
+  RETURN Leval2b
+RETURN Level1b
