@@ -78,4 +78,31 @@
 - in any dax object: measure, calculated column or tables. Or a hard coded value.
 - VAR (one or more variables) + RETURN, is the variable scope, you can have nested.
 - you can only declare and assign a variable once.
+- levels of scope
+- debugging use case.
+
+----
+## Chapter 3: Context
+- if you have mastered context you are far up the learning curve in DAX.
+- context affect calcs.
+- There are types of context: (1) filter (2) row
+- What is context? A: How DAX applies layers of filtering to tables used in your calcs so they return results that are relevant for every value.
+- Most context are automatic, but some you have control over.
+
+### Filter Context
+- what is filter context? A: the set of column-based filters applied on the fly to the underlying data for every dax calculation.
+- Helpful to think of every cell in a pivot table as its own calculation. A measure is calculated for that cell with the relevant filters applied there.
+- Each calc starts with access to every row of every table in the model; then filter context is established
+- Column based filters can be added to the filter context implicitly (due to another field in visual) or externally (outside the visual through a slicer or report, page, visual level filter). Also, this context can be modified (added, removed) explicitly via DAX in measures.
+
+#### Row Context
+
+
+### How data is stored in DAX
+
+
+### Context transition
+
+
+
 
