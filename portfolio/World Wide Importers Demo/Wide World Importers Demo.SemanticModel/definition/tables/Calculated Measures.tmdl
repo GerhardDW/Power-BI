@@ -1,0 +1,35 @@
+table 'Calculated Measures'
+	lineageTag: 8f3402fe-d72c-4c23-b94a-a0ed5f9a1c60
+
+	measure 'Sum of Total Including Tax' =
+			
+			//first dax calculation
+			sum('Fact Sale'[Total Including Tax])
+		lineageTag: 33a7f0b3-a232-4f0b-88bf-4b549565238d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sales Qty' = sum('Fact Sale'[Quantity])
+		formatString: #,0
+		lineageTag: 12ce2db3-2410-443f-b34b-19eb6aa31cca
+
+	measure 'Filter on Red' =
+			CALCULATE( SUM('Fact Sale'[Quantity]),
+			                           'Dimension Stock Item'[Color] = "Red" )
+		formatString: #,0
+		lineageTag: ea66187a-550a-4a79-89e1-63d7128d4394
+
+	partition 'Calculated Measures' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

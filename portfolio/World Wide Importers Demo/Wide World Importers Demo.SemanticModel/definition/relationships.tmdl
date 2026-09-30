@@ -1,0 +1,8 @@
+relationship eb0e40f5-c490-af88-b9f7-0745a55c59b7
+	fromColumn: 'Fact Sale'.'Invoice Date Key'
+	toColumn: 'Dimension Date'.Date
+
+relationship AutoDetected_db1cab29-efd3-41f7-b24d-9a90309f21bd
+	fromColumn: 'Fact Sale'.'Stock Item Key'
+	toColumn: 'Dimension Stock Item'.'Stock Item Key'
+

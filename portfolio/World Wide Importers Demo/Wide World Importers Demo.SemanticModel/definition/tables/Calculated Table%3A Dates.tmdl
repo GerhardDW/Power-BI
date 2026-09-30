@@ -1,0 +1,21 @@
+table 'Calculated Table: Dates'
+	lineageTag: 36c5a0e7-497c-463e-9353-7dc9060de7df
+
+	column Date
+		formatString: General Date
+		lineageTag: 1d50022c-e7a0-4fc6-be1b-99418d2b54e3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Calculated Table: Dates' = calculated
+		mode: import
+		source =
+				
+				//testing calendarauto()
+				CALENDARAUTO()
+
+	annotation PBI_Id = 927ffe16af7e4e6d9e66a04822b279d8
+

@@ -1,0 +1,32 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup Dimensions
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup Facts
+
+	annotation PBI_QueryGroupOrder = 1
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["Fact Sale","Dimension Date","Dimension Stock Item","Calculated Measures"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'Fact Sale'
+ref table 'Calculated Measures'
+ref table 'Dimension Date'
+ref table 'Calculated Table: Dates2'
+ref table 'Calculated Table: Dates'
+ref table 'Dimension Stock Item'
+
+ref cultureInfo en-US
+

@@ -1,0 +1,134 @@
+table 'Calculated Table: Dates2'
+	lineageTag: f4e1c536-51c8-495b-90aa-79835b027060
+
+	column Date
+		formatString: General Date
+		lineageTag: 0c2df6f7-3398-4c18-ba3c-2e34f2716b4f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dimension Date[Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Number'
+		formatString: 0
+		lineageTag: 3a9ae404-63af-41e7-8aac-28c9c7aa7af7
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dimension Date[Day Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		lineageTag: c7d0362d-47cf-4f60-ae82-2d6f21ab1363
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dimension Date[Day]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		lineageTag: 3512a1bd-553b-425e-b368-842f678f3720
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dimension Date[Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Short Month'
+		lineageTag: 018e8cb9-df70-4b19-9804-0f06819fc2a3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dimension Date[Short Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Calendar Month Number'
+		formatString: 0
+		lineageTag: 43050831-461a-4587-bc04-7443cd1a53a8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dimension Date[Calendar Month Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Calendar Month Label'
+		lineageTag: e391c876-b0f2-44e4-80a2-a1c2b103ad6b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dimension Date[Calendar Month Label]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Calendar Year'
+		formatString: 0
+		lineageTag: dcb8a825-8974-42e7-af3a-4bc761a1ab8c
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dimension Date[Calendar Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Calendar Year Label'
+		lineageTag: 75e84b27-2632-45bb-b24c-aaab533a4865
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dimension Date[Calendar Year Label]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Month Number'
+		formatString: 0
+		lineageTag: 39590fe4-5b15-4748-9556-52114c750d4a
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dimension Date[Fiscal Month Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Month Label'
+		lineageTag: 3bc31936-ef3e-4f0f-b1e2-4e71d4319bff
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dimension Date[Fiscal Month Label]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year'
+		formatString: 0
+		lineageTag: be1dafea-77f3-436a-841d-40d7762c3c47
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dimension Date[Fiscal Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year Label'
+		lineageTag: 735383da-d605-45f3-8b2d-fb89628e1bb0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Dimension Date[Fiscal Year Label]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ISO Week Number'
+		formatString: 0
+		lineageTag: 9333f34f-87fd-42e6-bf7b-521ec1d192a6
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Dimension Date[ISO Week Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Calculated Table: Dates2' = calculated
+		mode: import
+		source =
+				
+				//third dax calculation
+				FILTER(
+				    'Dimension Date',
+				    'Dimension Date'[Calendar Year] = 2016
+				)
+
+	annotation PBI_Id = c7dbdf25681845d2ad06af77d6cbaae9
+

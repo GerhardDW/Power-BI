@@ -1,0 +1,84 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "f92e4c75dbbbc7482417",
+  "position": {
+    "x": 908.98550724637687,
+    "y": 202.512077294686,
+    "z": 0,
+    "height": 279.80676328502415,
+    "width": 808.50241545893721,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dimension Date"
+                    }
+                  },
+                  "Property": "Calendar Year"
+                }
+              },
+              "queryRef": "Sum(Dimension Date.Calendar Year)",
+              "nativeQueryRef": "Calendar Year"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calculated Measures"
+                    }
+                  },
+                  "Property": "Sum of Total Including Tax"
+                }
+              },
+              "queryRef": "Calculated Measures.Sum of Total Including Tax",
+              "nativeQueryRef": "Sum of Total Including Tax"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ccadbf1e8354bb950f21",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dimension Date"
+              }
+            },
+            "Property": "Calendar Year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f687d3d592535c5e3eed",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Calculated Measures"
+              }
+            },
+            "Property": "Sum of Total Including Tax"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

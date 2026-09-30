@@ -1,0 +1,134 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "ff6ee260b720ea4be674",
+  "position": {
+    "x": 699.53488372093022,
+    "y": 216.640826873385,
+    "z": 0,
+    "height": 413.43669250645991,
+    "width": 421.7054263565891,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dimension Stock Item"
+                    }
+                  },
+                  "Property": "Color"
+                }
+              },
+              "queryRef": "Dimension Stock Item.Color",
+              "nativeQueryRef": "Color",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calculated Measures"
+                    }
+                  },
+                  "Property": "Sales Qty"
+                }
+              },
+              "queryRef": "Calculated Measures.Sales Qty",
+              "nativeQueryRef": "Sales Qty"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calculated Measures"
+                    }
+                  },
+                  "Property": "Filter on Red"
+                }
+              },
+              "queryRef": "Calculated Measures.Filter on Red",
+              "nativeQueryRef": "Filter on Red"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dimension Stock Item"
+                  }
+                },
+                "Property": "Color"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "24b54ebf9cbaaab05e20",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Calculated Measures"
+              }
+            },
+            "Property": "Sales Qty"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8743b1223de507233001",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dimension Stock Item"
+              }
+            },
+            "Property": "Color"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "277617e56dc3b92048a7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Calculated Measures"
+              }
+            },
+            "Property": "Filter on Red"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
